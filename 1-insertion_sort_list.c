@@ -93,9 +93,7 @@ void insert_beginning(listint_t **list, int value)
 		perror("Memory allocation failed");
 		exit(EXIT_FAILURE);
 	}
-	new_node->n = value;
-	new_node->prev = NULL;
-	new_node->next = NULL;
+	initialize_node(new_node, value);
 
 	if (*list == NULL)
 	{
@@ -106,4 +104,11 @@ void insert_beginning(listint_t **list, int value)
 	new_node->next = *list;
 	(*list)->prev = new_node;
 	*list = new_node;
+}
+void initialize_node(listint_t *node, int value)
+{
+	int *n_ptr = (int *)&(node->n);
+	*n_ptr = value;
+	node->prev = NULL;
+	node->next = NULL;
 }
