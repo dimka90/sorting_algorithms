@@ -33,5 +33,5 @@ int partition(int *array, int low, int high, size_t size);
 /* Utility function */
 void swap(int *a, int *b);
 void initialize_node(listint_t *node, int value);
-
+void shell_sort(int *array, size_t size);
 #endif
