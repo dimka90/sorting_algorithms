@@ -41,7 +41,7 @@ void swap_nodes(listint_t **list, listint_t *node1, listint_t *node2)
 	node1->next = next2;
 }
 /**
- * insert_sort_list - function that perform insert sort
+ * insertion_sort_list - function that perform insert sort
  * @list: the parameter
  * Return: 0 on success
  */
@@ -57,15 +57,17 @@ void insertion_sort_list(listint_t **list)
 
 	while (current != NULL)
 	{
-		key= current;
+		key = current;
 
 		while (key->prev != NULL && key->n < key->prev->n)
 		{
 			swap_nodes(list, key, key->prev);
 			key = key->prev;
+
 		}
 		current = current->next;
 		temp = *list;
+
 		while (temp != NULL)
 		{
 			printf("%d", temp->n);
